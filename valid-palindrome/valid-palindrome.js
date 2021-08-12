@@ -5,25 +5,25 @@
 let isPalindrome = function(s) {
     // character codes between 48-57 are numbers, 65-90 are capital letters
     let isValidCharacter = function(char) {
-        return (char.charCodeAt(0) >= 48 && char.charCodeAt(0) <= 57 ) ||
-               ( char.charCodeAt(0) >= 65 && char.charCodeAt(0) <= 90 );
+        return ( char.charCodeAt(0) >= 48 && char.charCodeAt(0) <= 57 ) ||
+               ( char.charCodeAt(0) >= 97 && char.charCodeAt(0) <= 122 );
     }
     
-    let upperString =
+    let lowerString =
         s.
-        toUpperCase().
+        toLowerCase().
         split('').
-        filter(isValidCharacter)
-        .join('');
+        filter(isValidCharacter);
+ 
+    if ( lowerString.length === 1 ) {
+        return true
+    }
     
-    let upperStringReversed =
-        upperString.
-        split('').
-        reverse().
-        join('');
-
-    console.log('upperLetters', upperString)
-    console.log('reversed', upperStringReversed)
-      
-    return upperString === upperStringReversed;
+    for ( let i = 0; i < lowerString.length / 2; i++ ) {
+       if (lowerString[i] !== lowerString[lowerString.length - 1 -i]) {
+           return false;
+       }
+    } 
+    
+    return true;
 };
