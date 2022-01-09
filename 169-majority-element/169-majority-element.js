@@ -7,14 +7,13 @@ const majorityElement = nums => {
   let counts = {};
   
   for (let i = 0; i < nums.length; i++){
-    if (counts[nums[i]]) {
+    if (!counts[nums[i]]){
+      counts[nums[i]] = 1;
+    } else {
       counts[nums[i]]++;
     }
-    else {
-      counts[nums[i]] = 1;
-    }
     
-    if (counts[nums[i]] > majority) return nums[i]
+    if (counts[nums[i]] > majority) return nums[i];
   }
    
 };
