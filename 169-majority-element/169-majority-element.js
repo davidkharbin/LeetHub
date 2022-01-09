@@ -3,7 +3,7 @@
  * @return {number}
  */
 const majorityElement = nums => {
-  let majority = Math.round(nums.length / 2);
+  let majority = nums.length / 2;
   let counts = {};
   
   for (let i = 0; i < nums.length; i++){
@@ -14,7 +14,7 @@ const majorityElement = nums => {
       counts[nums[i]] = 1;
     }
     
-    if (counts[nums[i]] === majority) return nums[i]
+    if (counts[nums[i]] > majority) return nums[i]
   }
    
 };
