@@ -41,5 +41,6 @@ const getDifference = (a, b) => {
     }
 
     if (isNegative) return -difference;
-    return difference
+    
+    return difference;
 };
