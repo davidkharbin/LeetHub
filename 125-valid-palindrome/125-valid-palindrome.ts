@@ -3,14 +3,12 @@ function isPalindrome(s: string): boolean{
     let end: number = s.length - 1
     
     while (start < end){
-        while ( nonAlphaNumeric(s[start]) ){
+        while ( nonAlphaNumeric(s[start]) && start < end ){
             start++
-            if ( start > end ) return true
         }
         
-        while ( nonAlphaNumeric(s[end]) ){
+        while ( nonAlphaNumeric(s[end]) && start < end ){
             end--
-            if (start > end ) return true
         } 
         
         
@@ -18,8 +16,7 @@ function isPalindrome(s: string): boolean{
             return false
         }
         
-        start++
-        end--
+        start++, end--
     }
     
     return true
