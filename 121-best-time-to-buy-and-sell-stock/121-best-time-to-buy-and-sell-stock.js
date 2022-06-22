@@ -2,7 +2,7 @@
  * @param {number[]} prices
  * @return {number}
  */
-const maxProfit = function(prices){
+function maxProfit(prices){
     let L = 0
     let R = 1
     let maxProfit = 0
