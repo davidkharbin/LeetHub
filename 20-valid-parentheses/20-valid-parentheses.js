@@ -7,23 +7,24 @@ const isValid = function(s) {
     let closers = { '}': 1, ']': 2, ')': 3 }
     let stack = []
     
-    if ( s.length < 2 || s[0] in closers ) return false
+    if ( s.length % 2 == 1 || s[0] in closers ){
+        return false  
+    } 
     
     for ( let currentChar of s ){
         if ( currentChar in openers ){
             stack.push(currentChar)
             continue
-        } else if ( stack.length === 0 ){
+        } else if ( stack.length == 0 )
             return false
-        }
         
-        let topStack = stack.at(-1)
-        if ( openers[topStack] === closers[currentChar] ){
+        
+        
+        if ( openers[stack.at(-1)] == closers[currentChar] )
             stack.pop()
-        } else {
-            stack.push(currentChar)
-        }
+        else stack.push(currentChar)
+        
     }
     
-    return stack.length === 0
+    return stack.length == 0
 }
