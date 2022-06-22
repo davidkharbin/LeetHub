@@ -7,7 +7,6 @@ function maxProfit(prices: number[]): number {
         
         if (todaysPrice < lowestPrice){
             lowestPrice = todaysPrice
-            continue
         }
         
         if ( todaysProfit > maxProfit ){
