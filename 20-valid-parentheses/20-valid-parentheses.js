@@ -13,6 +13,8 @@ const isValid = function(s) {
         if ( currentChar in openers ){
             stack.push(currentChar)
             continue
+        } else if ( stack.length === 0 ){
+            return false
         }
         
         let topStack = stack.at(-1)
