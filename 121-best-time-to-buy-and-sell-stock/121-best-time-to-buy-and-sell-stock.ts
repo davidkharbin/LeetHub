@@ -5,9 +5,13 @@ function maxProfit(prices: number[]): number {
     for ( let todaysPrice of prices ){
         let todaysProfit: number = todaysPrice - lowestPrice
         
-        if ( todaysPrice < lowestPrice ) lowestPrice = todaysPrice
+        if ( todaysPrice < lowestPrice ){
+            lowestPrice = todaysPrice
+        }
         
-        if ( todaysProfit > maxProfit ) maxProfit = todaysProfit
+        if ( todaysProfit > maxProfit ){
+            maxProfit = todaysProfit
+        }
     }
     return maxProfit
-}
+};
