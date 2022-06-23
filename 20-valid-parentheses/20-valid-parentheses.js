@@ -13,13 +13,15 @@ const isValid = function(str) {
     
     for ( let char of str ){
         if ( map.has(char) ){
-            stack.push(map.get(char))
+            stack.push(char)
             
         } else if ( stack.length == 0 ){
             return false
         
-        } else if ( char !== stack.pop() ){
-            return false;
+        } else {
+            let last = stack.pop()
+            if ( map.get(last) !== char )
+               return false
         }
     }
     
