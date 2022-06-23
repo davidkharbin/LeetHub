@@ -2,7 +2,7 @@
  * @param {string} s
  * @return {boolean}
  */
-const isValid = function(s) {
+const isValid = function(str) {
     
     let stack = []
     let map = new Map([
@@ -11,17 +11,14 @@ const isValid = function(s) {
         ['[', ']']
     ])
     
-    for ( let currentChar of s ){
-        if ( map.get(currentChar) ){
-            stack.push(currentChar)
-        } else if ( stack.length == 0 ){
-            return false
-        } else {
-            let last = stack.pop()
-            if (map.get(last) != currentChar){
-                return false;
-            }
+    for ( let char of str ){
+        if ( map.has(char) ){
+            stack.push(map.get(char))
+            
+        } else if ( char !== stack.pop() ){
+            return false;
         }
     }
+    
     return stack.length == 0
 }
