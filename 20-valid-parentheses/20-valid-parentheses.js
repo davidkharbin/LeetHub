@@ -15,6 +15,9 @@ const isValid = function(str) {
         if ( map.has(char) ){
             stack.push(map.get(char))
             
+        } else if ( stack.length == 0 ){
+            return false
+        
         } else if ( char !== stack.pop() ){
             return false;
         }
