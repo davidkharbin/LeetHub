@@ -3,19 +3,17 @@ function search(nums: number[], target: number): number {
     let R: number = nums.length - 1
     
     while (L <= R){
-        let midpoint = Math.floor( (L + R) / 2 )
+        let M: number = Math.floor( (L + R) / 2 )
         
-        if ( nums[midpoint] > target ){
-            R = midpoint - 1
-            
-        } else if (  nums[midpoint] < target ){
-            L = midpoint + 1
-            
+        if ( nums[M] > target ){
+            R = M - 1
+        } else if (  nums[M] < target ){
+            L = M + 1
         } else {
-           return midpoint 
+           return M 
         }
         
     }
     
     return -1
-};
+}
