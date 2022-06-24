@@ -4,13 +4,14 @@ function search(nums: number[], target: number): number {
     
     while (L <= R){
         let midpoint = Math.floor( (L + R) / 2 )
-        if ( target > nums[midpoint] ){
-            L = midpoint + 1
+        
+        if ( nums[midpoint] > target ){
+            R = midpoint - 1
             continue
         }
         
-        if ( target < nums[midpoint] ){
-            R = midpoint - 1
+        if (  nums[midpoint] < target ){
+            L = midpoint + 1
             continue
         }
         
