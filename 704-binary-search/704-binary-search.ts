@@ -7,15 +7,14 @@ function search(nums: number[], target: number): number {
         
         if ( nums[midpoint] > target ){
             R = midpoint - 1
-            continue
-        }
-        
-        if (  nums[midpoint] < target ){
+            
+        } else if (  nums[midpoint] < target ){
             L = midpoint + 1
-            continue
+            
+        } else {
+           return midpoint 
         }
         
-        return midpoint
     }
     
     return -1
