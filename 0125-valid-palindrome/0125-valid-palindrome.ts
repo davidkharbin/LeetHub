@@ -4,20 +4,21 @@ function isPalindrome(s: string): boolean {
     let charsOnly = arr
         .map(el => el.toLowerCase())
         .filter(lower => nonAlphaNumeric(lower));
+    
     let end = charsOnly.length - 1;
     let start = 0
     
     while(start < end){
        if (charsOnly[start] !== charsOnly[end]){
             return false;
-        }
-        
+        }    
         end--;
         start++;
     }
     
     return true;
 };
+
 
 function nonAlphaNumeric(char: string): boolean{
     const ascii = char.charCodeAt(0)
